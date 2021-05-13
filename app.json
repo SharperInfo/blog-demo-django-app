@@ -5,6 +5,9 @@
       "url": "heroku/nodejs"
     },
     {
+      "url": "https://github.com/SharperInfo/my-data-chameleon-heroku-buildpack"
+    },
+    {
       "url": "heroku/python"
     }
   ],
