@@ -1,0 +1,31 @@
+name: Templates
+on:
+  push:
+    paths:
+      - "**/*.html"
+      - ".github/workflows/templates.yaml"
+      - "requirements-test.txt"
+      - "pyproject.toml"
+
+jobs:
+  lint-templates:
+    name: Lint Templates
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.8
+      - name: Cache Pip
+        uses: actions/cache@v2.1.5
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('requirements-test.txt') }}
+      - name: Setup
+        run: |
+          pip install --requirement requirements-test.txt
+      - name: Lint Templates
+        run: curlylint .

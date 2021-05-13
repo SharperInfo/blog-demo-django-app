@@ -1,0 +1,30 @@
+name: SCSS
+on:
+  push:
+    paths:
+      - "**/*.scss"
+      - ".github/workflows/scss.yaml"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  lint-scss:
+    name: Lint SCSS
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+      - name: Cache NPM
+        uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+      - name: Setup
+        run: npm ci
+      - name: Lint SCSS
+        run: npx stylelint **/*.scss

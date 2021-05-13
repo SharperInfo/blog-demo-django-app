@@ -1,0 +1,7 @@
+/* This file is only here to make the CSS big enough to produce a separate file. */
+
+@for $i from 1 through 1000 {
+  .transparent-#{$i}-percent {
+    opacity: 100 / $i;
+  }
+}

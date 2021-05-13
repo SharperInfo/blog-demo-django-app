@@ -1,0 +1,34 @@
+name: Prettier
+on:
+  push:
+    paths:
+      - "**/*.js"
+      - "**/*.json"
+      - "**/*.md"
+      - "**/*.scss"
+      - "**/*.yaml"
+      - ".github/workflows/prettier.yaml"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  prettier:
+    name: Check formatting
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+      - name: Cache NPM
+        uses: actions/cache@v2.1.5
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+      - name: Setup
+        run: npm ci
+      - name: Run Prettier Check
+        run: npx prettier . --check

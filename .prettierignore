@@ -1,0 +1,4 @@
+*.html
+/.nova/
+/blog_demo_django_app/static/bundle.*
+/staticfiles/

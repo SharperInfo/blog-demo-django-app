@@ -1,0 +1,43 @@
+@use "../colors";
+@use "../typography";
+@use "../base";
+
+$height: typography.$size * 6;
+
+header {
+  background: colors.$black;
+  color: colors.$white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: $height;
+  line-height: 1;
+
+  img {
+    height: 100%;
+  }
+
+  h1 {
+    flex-grow: 1;
+    font-size: typography.$size * 2;
+    line-height: typography.$size * 2;
+    margin: 0;
+    padding: ($height - (typography.$size * 2)) / 2;
+  }
+}
+
+.header-nav-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: inherit;
+    display: block;
+    padding: ($height - typography.$size) / 2 typography.$size;
+  }
+}

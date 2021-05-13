@@ -1,0 +1,53 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - "--fix=lf"
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        entry: isort
+        language: python
+        types: [python]
+      - id: black
+        name: black
+        entry: black
+        language: python
+        types: [python]
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: python
+        types: [python]
+        args: ["--score=n", "--verbose"]
+      - id: curlylint
+        name: curlylint
+        entry: curlylint
+        language: python
+        types: [html]
+      - id: prettier
+        name: prettier
+        entry: npx prettier
+        language: node
+        types_or: [javascript, scss, markdown, yaml, json]
+        args: ["--write", "--list-different"]
+      - id: eslint
+        name: eslint
+        entry: npx eslint
+        language: node
+        types: [javascript]
+      - id: stylelint
+        name: stylelint
+        entry: npx stylelint
+        language: node
+        types: [scss]
+        args: ["--fix"]

@@ -1,0 +1,5 @@
+-c requirements-test.txt
+ipython
+pip-tools
+pre-commit
+python-dotenv

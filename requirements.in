@@ -1,0 +1,10 @@
+django[argon2]
+gunicorn
+dj-database-url
+psycopg2
+django-debug-toolbar
+whitenoise
+django-enforce-host
+django-csp
+django-permissions-policy
+sentry-sdk

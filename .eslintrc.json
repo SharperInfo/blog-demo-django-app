@@ -1,0 +1,11 @@
+{
+  "env": { "browser": true, "es2021": true },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": { "sourceType": "module", "ecmaVersion": "2021" },
+  "ignorePatterns": [
+    "/blog_demo_django_app/static/bundle.*",
+    "/webpack.config.js",
+    "staticfiles"
+  ],
+  "rules": { "no-console": "error" }
+}

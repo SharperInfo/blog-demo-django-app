@@ -1,0 +1,30 @@
+name: JavaScript
+on:
+  push:
+    paths:
+      - "**/*.js"
+      - ".github/workflows/js.yaml"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  lint-js:
+    name: Lint JavaScript
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Cache NPM
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+      - name: Setup
+        run: npm ci
+      - name: Lint JavaScript
+        run: npx eslint .

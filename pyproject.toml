@@ -1,0 +1,50 @@
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+known_django = "django"
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+[tool.pylint.master]
+load-plugins = [
+    "pylint.extensions.mccabe",
+    "pylint.extensions.bad_builtin",
+    "pylint_django",
+    "pylint_django.checkers.migrations",
+]
+good-names = ["application", "urlpatterns", "default_app_config", "i"]
+
+[tool.pylint.basic]
+docstring-min-length = 5
+include-naming-hint = true
+
+[tool.pylint.design]
+min-public-methods = 0
+max-parents = 15
+
+[tool.pylint.similarities]
+ignore-imports = true
+ignore-comments = true
+ignore-docstrings = true
+
+[tool.pylint.spelling]
+spelling-dict = "en_US"
+spelling-private-dict-file = ".dictionary"
+
+[tool.pylint.format]
+max-line-length = 88  # https://black.readthedocs.io/en/stable/the_black_code_style.html#line-length
+
+[tool.pylint."django foreign keys referenced by strings"]
+django-settings-module = "blog_demo_django_app.settings"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "blog_demo_django_app.settings"
+filterwarnings = [
+    "error",
+    "once::django.utils.deprecation.RemovedInDjango41Warning:django.apps",
+]
+
+[tool.black]
+experimental-string-processing = true

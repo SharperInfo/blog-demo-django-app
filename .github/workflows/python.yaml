@@ -1,0 +1,35 @@
+name: Python
+on:
+  push:
+    paths:
+      - "**/*.py"
+      - ".github/workflows/python.yaml"
+      - "requirements.txt"
+      - "requirements-test.txt"
+      - "pyproject.toml"
+
+jobs:
+  lint-python:
+    name: Lint Python Code
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.8
+      - name: Cache Pip
+        uses: actions/cache@v2.1.5
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('requirements.txt', 'requirements-test.txt') }}
+      - name: Setup
+        run: |
+          pip install --requirement requirements.txt --requirement requirements-test.txt
+      - name: Lint Python Code
+        run: |
+          isort --check --diff .
+          black --check --diff .
+          find . -name "*.py" | xargs pylint

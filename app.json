@@ -1,0 +1,17 @@
+{
+  "name": "blog-demo-django-app",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "addons": ["heroku-postgresql"],
+  "env": {
+    "SECRET_KEY": {
+      "generator": "secret"
+    }
+  }
+}

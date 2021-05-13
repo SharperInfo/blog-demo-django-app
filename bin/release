@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -ex
+
+if [ -z "$DEBUG" ]
+then
+    python manage.py check --deploy --fail-level WARNING
+fi
+
+python manage.py migrate --no-input
+python manage.py clearsessions

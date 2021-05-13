@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -ex
+
+if [ -z "$DEBUG" ]
+then
+    python manage.py check --deploy --fail-level WARNING
+fi
+
+gunicorn blog_demo_django_app.wsgi --log-file -

@@ -1,0 +1,11 @@
+-c requirements.txt
+black
+curlylint
+delayed-assert
+isort
+model-bakery
+pyenchant
+pylint
+pylint-django
+pytest
+pytest-django

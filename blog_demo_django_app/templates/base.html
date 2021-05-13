@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "bundle.css" %}">
+    {% block style %} {% endblock %}
+  </head>
+  <body>
+    {% include "blog_demo_django_app/_header.html" with user=user only %}
+
+    {% include "blog_demo_django_app/_messages.html" with messages=messages only %}
+
+    <main>
+      {% block content %}
+        <p>Under construction.</p>
+      {% endblock %}
+    </main>
+
+    {% include "blog_demo_django_app/_footer.html" with user=user only %}
+
+  </body>
+  <script src="{% static "bundle.js" %}"></script>
+  {% if sentry_dsn %}
+    <script nonce="{{ request.csp_nonce }}">
+        let sentry_options = {"dsn": "{{ sentry_dsn }}"};
+        {% if sentry_environment %}
+          sentry_options["environment"] = "{{ sentry_environment }}";
+        {% endif %}
+        {% if sentry_release %}
+          sentry_options["release"] = "{{ sentry_release }}";
+        {% endif %}
+        Sentry.init(sentry_options);
+    </script>
+  {% endif %}
+  {% block script %} {% endblock %}
+</html>

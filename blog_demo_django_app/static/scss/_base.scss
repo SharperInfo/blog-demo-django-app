@@ -1,0 +1,28 @@
+@use "colors";
+@use "typography";
+
+$padding: typography.$size;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: colors.$white;
+  color: colors.$black;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  > header,
+  > footer {
+    flex-shrink: 0;
+  }
+
+  > main {
+    flex-grow: 1;
+    padding: $padding;
+  }
+}

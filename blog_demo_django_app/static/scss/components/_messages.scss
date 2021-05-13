@@ -1,0 +1,30 @@
+@use "../colors";
+
+$opacity: 0.2;
+
+.messages-list {
+  list-style: none;
+  margin: 1em;
+  padding: 0;
+  li {
+    background-color: rgba(colors.$black, $opacity);
+    border: 2px solid colors.$black;
+    padding: 1em;
+  }
+}
+
+@each $messageClass,
+  $color
+    in (
+      "success": colors.$green,
+      "warning": colors.$red,
+      "error": colors.$red,
+      "info": colors.$black,
+      "debug": colors.$blue
+    )
+{
+  .message-list-item-#{$messageClass} {
+    background-color: rgba($color, $opacity);
+    border-color: $color;
+  }
+}

@@ -1,0 +1,66 @@
+@use "colors";
+
+$regular: helvetica, arial, sans-serif;
+
+$size: 16px;
+$line-height: $size * 1.375;
+
+$normal-weight: 400;
+$medium-weight: 500;
+$bold-weight: 700;
+
+html,
+body {
+  color: colors.$black;
+  font-family: $regular;
+  font-size: $size;
+  font-weight: $normal-weight;
+  line-height: $line-height;
+}
+
+$h1-size: $size * 2;
+$h1-line-height: $line-height * 2;
+$h1-weight: $normal-weight;
+
+h1 {
+  font-size: $h1-size;
+  font-weight: $h1-weight;
+  line-height: $h1-line-height;
+}
+
+$h2-size: $size * 1.625;
+$h2-line-height: $line-height * 1.625;
+$h2-weight: $normal-weight;
+
+h2,
+table caption {
+  font-size: $h2-size;
+  font-weight: $h2-weight;
+  line-height: $h2-line-height;
+}
+
+$h3-size: $size * 1.125;
+$h3-line-height: $line-height * 1.125;
+$h3-weight: $medium-weight;
+
+h3 {
+  font-size: $h3-size;
+  font-weight: $h3-weight;
+  line-height: $h3-line-height;
+}
+
+$small-size: $size * 0.875;
+$small-line-height: $line-height * 0.875;
+
+small,
+footer,
+.small-text {
+  font-size: $small-size;
+  line-height: $small-line-height;
+}
+
+a {
+  color: inherit;
+  font-weight: $bold-weight;
+  text-decoration: underline;
+}

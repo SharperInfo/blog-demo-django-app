@@ -1,0 +1,7 @@
+*.pyc
+**/static/**/*.css
+**/static/**/*.map
+/.env
+/node_modules
+/blog_demo_django_app/static/bundle.*
+/staticfiles
