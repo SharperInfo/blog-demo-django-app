@@ -38,8 +38,8 @@ MEALS = [
         contains_meat=True,
         contains_dairy=True,
     ),
-    Meal("greek-salad", "Greek Salad", 1, contains_dairy=True),
-    Meal("scrambled-eggs", "Scrambled Eggs", 2, contains_other_animal_products=True),
+    Meal("greek-salad", "Greek Salad", contains_dairy=True),
+    Meal("scrambled-eggs", "Scrambled Eggs", contains_other_animal_products=True),
     Meal("garden-salad", "Garden Salad"),
     Meal("tomato-soup", "Tomato Soup"),
 ]

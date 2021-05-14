@@ -5,12 +5,18 @@
 {% block content %}
 
 <h1>Order a meal</h1>
-<p>Order a meal by selecting a meal, the number of people eating the meal, and any
-  dietary restrictions below.</p>
-<p>This is a demonstration of using HTMX to power dynamic form validation in Django.</p>
+<p>Select a meal, the number of people eating the meal, and any dietary restrictions below.</p>
+<p>This is a demonstration of using HTMX to provide dynamic form validation in Django.
+  <a href="">Read our blog post for more information.</a></p>
 
-<form method="post" hx-trigger="change" hx-post="{% url 'order-meal' %}">
-  {% include "blog_demo_django_app/_order-meal-form-content.html" %}
+<form method="post" id="order-meal-form"
+    hx-trigger="change"
+    hx-post="{% url 'order-meal' %}"
+    hx-select="form"
+    hx-swap="outerHTML">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button>Order meal</button>
 </form>
 
 {% endblock %}
