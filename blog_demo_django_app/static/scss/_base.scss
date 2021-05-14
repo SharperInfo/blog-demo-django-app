@@ -23,6 +23,8 @@ body {
 
   > main {
     flex-grow: 1;
+    margin: 0 auto;
     padding: $padding;
+    width: 400px;
   }
 }
