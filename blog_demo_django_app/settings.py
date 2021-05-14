@@ -59,7 +59,6 @@ ENFORCE_HOST = os.environ.get("CANONICAL_HOST")
 
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -67,6 +66,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
     "debug_toolbar",
     "blog_demo_django_app",
 ]

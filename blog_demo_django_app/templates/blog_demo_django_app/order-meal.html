@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1>Order a meal</h1>
+<p>Order a meal by selecting a meal, the number of people eating the meal, and any
+  dietary restrictions below.</p>
+<p>This is a demonstration of using HTMX to power dynamic form validation in Django.</p>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button>Order Meal</button>
+</form>
+
+{% endblock %}

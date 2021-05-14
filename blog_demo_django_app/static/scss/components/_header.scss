@@ -16,13 +16,16 @@ header {
   img {
     height: 100%;
   }
+}
 
-  h1 {
-    flex-grow: 1;
-    font-size: typography.$size * 2;
-    line-height: typography.$size * 2;
-    margin: 0;
-    padding: ($height - (typography.$size * 2)) / 2;
+.header-name {
+  flex-grow: 1;
+  font-size: typography.$size * 2;
+  line-height: typography.$size * 2;
+  margin: 0;
+  padding: ($height - (typography.$size * 2)) / 2;
+  a {
+    text-decoration: none;
   }
 }
 

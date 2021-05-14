@@ -2,15 +2,18 @@
 
 $regular: helvetica, arial, sans-serif;
 
-$size: 16px;
-$line-height: $size * 1.375;
+$size: 18px;
+$line-height: $size * 1.5;
 
 $normal-weight: 400;
 $medium-weight: 500;
 $bold-weight: 700;
 
 html,
-body {
+body,
+input,
+button,
+select {
   color: colors.$black;
   font-family: $regular;
   font-size: $size;
@@ -28,8 +31,8 @@ h1 {
   line-height: $h1-line-height;
 }
 
-$h2-size: $size * 1.625;
-$h2-line-height: $line-height * 1.625;
+$h2-size: $size * 1.5;
+$h2-line-height: $line-height * 1.5;
 $h2-weight: $normal-weight;
 
 h2,
@@ -39,8 +42,8 @@ table caption {
   line-height: $h2-line-height;
 }
 
-$h3-size: $size * 1.125;
-$h3-line-height: $line-height * 1.125;
+$h3-size: $size * 1.25;
+$h3-line-height: $line-height * 1.25;
 $h3-weight: $medium-weight;
 
 h3 {
@@ -49,8 +52,8 @@ h3 {
   line-height: $h3-line-height;
 }
 
-$small-size: $size * 0.875;
-$small-line-height: $line-height * 0.875;
+$small-size: $size * 0.75;
+$small-line-height: $line-height * 0.75;
 
 small,
 footer,
