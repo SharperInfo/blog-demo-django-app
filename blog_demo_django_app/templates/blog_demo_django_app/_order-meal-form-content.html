@@ -1,0 +1,5 @@
+{% load crispy_forms_tags %}
+
+{% csrf_token %}
+{{ form|crispy }}
+<button>Order meal</button>

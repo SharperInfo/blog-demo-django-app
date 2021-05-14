@@ -82,9 +82,8 @@ class OrderMealForm(forms.Form):
                 ),
             )
 
-        if (
-            self.cleaned_data["vegan"]
-            and meal.contains_meat
+        if self.cleaned_data["vegan"] and (
+            meal.contains_meat
             or meal.contains_dairy
             or meal.contains_other_animal_products
         ):

@@ -9,10 +9,8 @@
   dietary restrictions below.</p>
 <p>This is a demonstration of using HTMX to power dynamic form validation in Django.</p>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button>Order Meal</button>
+<form method="post" hx-trigger="change" hx-post="{% url 'order-meal' %}">
+  {% include "blog_demo_django_app/_order-meal-form-content.html" %}
 </form>
 
 {% endblock %}
