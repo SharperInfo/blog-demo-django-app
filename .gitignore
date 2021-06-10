@@ -5,3 +5,5 @@
 /node_modules
 /blog_demo_django_app/static/bundle.*
 /staticfiles
+/cypress/fixtures
+/cypress/plugins
