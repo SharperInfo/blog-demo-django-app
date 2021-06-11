@@ -8,8 +8,6 @@ appdirs==1.4.4
     # via
     #   -c requirements-test.txt
     #   virtualenv
-appnope==0.1.2
-    # via ipython
 backcall==0.2.0
     # via ipython
 cfgv==3.2.0
@@ -24,7 +22,7 @@ distlib==0.3.1
     # via virtualenv
 filelock==3.0.12
     # via virtualenv
-identify==2.2.4
+identify==2.2.10
     # via pre-commit
 ipython-genutils==0.2.0
     # via traitlets
