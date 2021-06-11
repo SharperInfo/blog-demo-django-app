@@ -57,6 +57,20 @@ class OrderMealForm(forms.Form):
     vegan = forms.BooleanField(required=False)
     lactose_intolerant = forms.BooleanField(required=False)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field_for_cypress in [
+            "meal",
+            "num_people",
+            "vegetarian",
+            "vegan",
+            "lactose_intolerant",
+        ]:
+            self.fields[field_for_cypress].widget.attrs.update(
+                {f"data-cy-{ field_for_cypress.replace('_', '-') }": True}
+            )
+
     def clean(self):
         """Validate a meal order."""
 

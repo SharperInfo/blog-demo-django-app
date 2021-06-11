@@ -1,6 +1,1 @@
-{
-  "baseUrl": "http://localhost:8001",
-  "env": {
-    "DJANGO_MANAGE_COMMAND": "PIPENV_DONT_LOAD_ENV=1 DATABASE_URL=postgres://blog_demo_django_app_cypress:security_is_important@localhost/blog_demo_django_app_cypress pipenv run python manage.py"
-  }
-}
+{ "baseUrl": "http://localhost:8000", "chromeWebSecurity": false }

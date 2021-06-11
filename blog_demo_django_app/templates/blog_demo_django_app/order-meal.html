@@ -16,7 +16,7 @@
     hx-swap="outerHTML">
   {% csrf_token %}
   {{ form|crispy }}
-  <button>Order meal</button>
+  <button data-cy-order-button>Order meal</button>
 </form>
 
 {% endblock %}

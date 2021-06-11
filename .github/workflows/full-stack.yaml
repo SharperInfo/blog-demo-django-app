@@ -1,0 +1,101 @@
+name: Full stack
+on:
+  pull_request:
+    branches:
+      - "main"
+
+env:
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Create Heroku app setup
+        run: |
+          # Call the app setup API to deploy the app.
+          TARBALL_URL="https://api.github.com/repos/${{ github.repository }}/tarball/${{ github.sha }}"
+          RESPONSE=`curl \
+            --request POST https://api.heroku.com/app-setups \
+            --header "Authorization: Bearer ${{ secrets.HEROKU_API_KEY }}" \
+            --header "Content-Type: application/json" \
+            --header "Accept: application/vnd.heroku+json; version=3" \
+            --data "{\"source_blob\": {\"url\": \"$TARBALL_URL\"}}" \
+            --silent \
+            --fail`
+
+          # Get the app setup ID and name from the response, then write them
+          # to environment variables.
+          HEROKU_SETUP_ID=`echo "$RESPONSE" | jq ".id" -r`
+          echo "HEROKU_SETUP_ID=$HEROKU_SETUP_ID" >> $GITHUB_ENV
+          HEROKU_APP=`echo "$RESPONSE" | jq ".app.name" -r`
+          echo "HEROKU_APP=$HEROKU_APP" >> $GITHUB_ENV
+
+      - name: Configure Heroku
+        run: heroku labs:enable runtime-dyno-metadata
+
+      - name: Wait for Heroku app setup
+        run: |
+          STATUS="pending"
+          until [ "$STATUS" != "pending" ]
+          do
+            sleep 1
+            RESPONSE=`curl \
+              https://api.heroku.com/app-setups/$HEROKU_SETUP_ID \
+                --header "Authorization: Bearer ${{ secrets.HEROKU_API_KEY }}" \
+                --header "Content-Type: application/json" \
+                --header "Accept: application/vnd.heroku+json; version=3"  \
+                --silent \
+                --fail`
+            STATUS=`echo "$RESPONSE" | jq ".status" -r`
+          done
+          echo "Heroku app setup complete."
+          echo "$RESPONSE" | jq
+          if [ "$STATUS" != "succeeded" ]
+          then
+            exit 1
+          fi
+
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:
+          wait-on: https://${{ env.HEROKU_APP }}.herokuapp.com
+          config: baseUrl=https://${{ env.HEROKU_APP }}.herokuapp.com
+
+      - name: Get Logs from Heroku
+        if: ${{ always() }}
+        run: heroku logs --num 1500 > heroku-logs.txt
+
+      - name: Save Heroku Logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: heroku-logs
+          path: "heroku-logs.txt"
+
+      - name: Save Cypress videos
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-videos
+          path: "cypress/videos/"
+
+      - name: Save Cypress screenshots
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: "cypress/screenshots/"
+
+      - name: Stop Heroku dynos
+        if: ${{ always() }}
+        run: heroku ps:scale web=0
+
+      - name: Destroy Heroku app
+        if: ${{ always() }}
+        run: heroku apps:destroy $HEROKU_APP --confirm $HEROKU_APP
