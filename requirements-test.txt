@@ -56,7 +56,7 @@ packaging==20.9
     # via pytest
 parsy==1.1.0
     # via curlylint
-pathspec==0.8.1
+pathspec==0.9.0
     # via
     #   black
     #   curlylint
@@ -70,23 +70,23 @@ pycparser==2.20
     #   cffi
 pyenchant==3.2.0
     # via -r requirements-test.in
-pylint-django==2.4.4
-    # via -r requirements-test.in
-pylint-plugin-utils==0.6
-    # via pylint-django
 pylint==2.8.2
     # via
     #   -r requirements-test.in
     #   pylint-django
     #   pylint-plugin-utils
+pylint-django==2.4.4
+    # via -r requirements-test.in
+pylint-plugin-utils==0.6
+    # via pylint-django
 pyparsing==2.4.7
     # via packaging
-pytest-django==4.2.0
-    # via -r requirements-test.in
 pytest==6.2.4
     # via
     #   -r requirements-test.in
     #   pytest-django
+pytest-django==4.2.0
+    # via -r requirements-test.in
 pytz==2021.1
     # via
     #   -c requirements.txt
