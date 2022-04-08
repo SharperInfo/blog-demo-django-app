@@ -73,21 +73,21 @@ jobs:
 
       - name: Save Heroku Logs
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: heroku-logs
           path: "heroku-logs.txt"
 
       - name: Save Cypress videos
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
           path: "cypress/videos/"
 
       - name: Save Cypress screenshots
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots
           path: "cypress/screenshots/"
