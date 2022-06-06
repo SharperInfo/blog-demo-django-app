@@ -32,7 +32,7 @@ click==8.0.0
     #   curlylint
 curlylint==0.13.0
     # via -r requirements-test.in
-delayed-assert==0.3.5
+delayed-assert==0.3.6
     # via -r requirements-test.in
 django[argon2]==3.2.3
     # via
@@ -70,23 +70,23 @@ pycparser==2.20
     #   cffi
 pyenchant==3.2.0
     # via -r requirements-test.in
-pylint-django==2.4.4
-    # via -r requirements-test.in
-pylint-plugin-utils==0.6
-    # via pylint-django
 pylint==2.8.2
     # via
     #   -r requirements-test.in
     #   pylint-django
     #   pylint-plugin-utils
+pylint-django==2.4.4
+    # via -r requirements-test.in
+pylint-plugin-utils==0.6
+    # via pylint-django
 pyparsing==2.4.7
     # via packaging
-pytest-django==4.2.0
-    # via -r requirements-test.in
 pytest==6.2.4
     # via
     #   -r requirements-test.in
     #   pytest-django
+pytest-django==4.2.0
+    # via -r requirements-test.in
 pytz==2021.1
     # via
     #   -c requirements.txt
