@@ -34,7 +34,7 @@ jobs:
         with:
           python-version: 3.9.4
       - name: Cache Pip
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.8
         with:
           path: ~/.cache/pip
           key: pip-${{ hashFiles('requirements.txt', 'requirements-test.txt') }}
@@ -58,7 +58,7 @@ jobs:
         with:
           python-version: 3.9.4
       - name: Cache Pip
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.8
         with:
           path: ~/.cache/pip
           key: pip-${{ hashFiles('requirements.txt') }}
