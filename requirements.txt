@@ -14,6 +14,12 @@ cffi==1.14.5
     # via argon2-cffi
 dj-database-url==0.5.0
     # via -r requirements.in
+django[argon2]==3.2.3
+    # via
+    #   -r requirements.in
+    #   django-csp
+    #   django-debug-toolbar
+    #   django-permissions-policy
 django-crispy-forms==1.11.2
     # via -r requirements.in
 django-csp==3.7
@@ -24,15 +30,9 @@ django-enforce-host==1.0.1
     # via -r requirements.in
 django-permissions-policy==4.0.1
     # via -r requirements.in
-django[argon2]==3.2.3
-    # via
-    #   -r requirements.in
-    #   django-csp
-    #   django-debug-toolbar
-    #   django-permissions-policy
 gunicorn==20.1.0
     # via -r requirements.in
-psycopg2==2.8.6
+psycopg2==2.9.4
     # via -r requirements.in
 pycparser==2.20
     # via cffi
