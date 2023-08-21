@@ -62,7 +62,7 @@ jobs:
           fi
 
       - name: Run tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v6
         with:
           wait-on: https://${{ env.HEROKU_APP }}.herokuapp.com
           config: baseUrl=https://${{ env.HEROKU_APP }}.herokuapp.com
