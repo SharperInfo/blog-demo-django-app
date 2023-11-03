@@ -8,10 +8,8 @@ appdirs==1.4.4
     # via
     #   -c requirements-test.txt
     #   virtualenv
-appnope==0.1.2
-    # via ipython
-backcall==0.2.0
-    # via ipython
+asttokens==2.4.1
+    # via stack-data
 cfgv==3.2.0
     # via pre-commit
 click==8.0.0
@@ -22,14 +20,18 @@ decorator==5.0.7
     # via ipython
 distlib==0.3.1
     # via virtualenv
+exceptiongroup==1.1.3
+    # via ipython
+executing==2.0.1
+    # via stack-data
 filelock==3.0.12
     # via virtualenv
 identify==2.2.4
     # via pre-commit
+ipython==8.17.2
+    # via -r requirements-dev.in
 ipython-genutils==0.2.0
     # via traitlets
-ipython==7.23.1
-    # via -r requirements-dev.in
 jedi==0.18.0
     # via ipython
 matplotlib-inline==0.1.2
@@ -42,16 +44,16 @@ pep517==0.10.0
     # via pip-tools
 pexpect==4.8.0
     # via ipython
-pickleshare==0.7.5
-    # via ipython
 pip-tools==6.1.0
     # via -r requirements-dev.in
 pre-commit==2.12.1
     # via -r requirements-dev.in
-prompt-toolkit==3.0.18
+prompt-toolkit==3.0.39
     # via ipython
 ptyprocess==0.7.0
     # via pexpect
+pure-eval==0.2.2
+    # via stack-data
 pygments==2.9.0
     # via ipython
 python-dotenv==0.17.1
@@ -61,7 +63,10 @@ pyyaml==5.4.1
 six==1.16.0
     # via
     #   -c requirements-test.txt
+    #   asttokens
     #   virtualenv
+stack-data==0.6.3
+    # via ipython
 toml==0.10.2
     # via
     #   -c requirements-test.txt
@@ -71,6 +76,8 @@ traitlets==5.0.5
     # via
     #   ipython
     #   matplotlib-inline
+typing-extensions==4.8.0
+    # via ipython
 virtualenv==20.4.6
     # via pre-commit
 wcwidth==0.2.5
@@ -78,4 +85,3 @@ wcwidth==0.2.5
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
-# setuptools
