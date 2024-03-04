@@ -6,10 +6,6 @@
 #
 appdirs==1.4.4
     # via black
-argon2-cffi==20.1.0
-    # via
-    #   -c requirements.txt
-    #   django
 asgiref==3.3.4
     # via
     #   -c requirements.txt
@@ -22,10 +18,6 @@ attrs==21.2.0
     #   pytest
 black==21.5b1
     # via -r requirements-test.in
-cffi==1.14.5
-    # via
-    #   -c requirements.txt
-    #   argon2-cffi
 click==8.0.0
     # via
     #   black
@@ -34,7 +26,7 @@ curlylint==0.13.0
     # via -r requirements-test.in
 delayed-assert==0.3.5
     # via -r requirements-test.in
-django[argon2]==3.2.3
+django==3.2.3
     # via
     #   -c requirements.txt
     #   model-bakery
@@ -64,39 +56,31 @@ pluggy==0.13.1
     # via pytest
 py==1.10.0
     # via pytest
-pycparser==2.20
-    # via
-    #   -c requirements.txt
-    #   cffi
 pyenchant==3.2.0
     # via -r requirements-test.in
-pylint-django==2.4.4
-    # via -r requirements-test.in
-pylint-plugin-utils==0.6
-    # via pylint-django
 pylint==2.8.2
     # via
     #   -r requirements-test.in
     #   pylint-django
     #   pylint-plugin-utils
+pylint-django==2.5.5
+    # via -r requirements-test.in
+pylint-plugin-utils==0.8.2
+    # via pylint-django
 pyparsing==2.4.7
     # via packaging
-pytest-django==4.2.0
-    # via -r requirements-test.in
 pytest==6.2.4
     # via
     #   -r requirements-test.in
     #   pytest-django
+pytest-django==4.2.0
+    # via -r requirements-test.in
 pytz==2021.1
     # via
     #   -c requirements.txt
     #   django
 regex==2021.4.4
     # via black
-six==1.16.0
-    # via
-    #   -c requirements.txt
-    #   argon2-cffi
 sqlparse==0.4.1
     # via
     #   -c requirements.txt
